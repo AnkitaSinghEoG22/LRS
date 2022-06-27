@@ -1,0 +1,46 @@
+  
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Content Based Laptop recommandation systems</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  
+</head>
+
+<body>
+	<div>
+		<h1>Laptop Recommendation System</h1>
+	</div>
+	
+	<div class="login">
+		<form action="/suggest" method="post">
+			<input type="text " name="model" placeholder="enter your specs" required="required" />
+			<button type="submit" class="btn btn-primary btn-block btn-large" , value='suggest'>Submit</button>
+		</form>
+	</div>   
+
+  <div class="tablediv">
+    <table>
+		<tr>
+			<th>S.NO</th>
+			<th>Laptop</th>
+		</tr>
+      {%for i,j in result%}
+      <tr>
+      <td>{{i+1}}</td>
+      <td>{{j[0]}}</td>
+      <td><img src={{j[1]}}></td>
+    </tr>
+      {%endfor%}    
+    </table>
+
+   </div>
+
+
+</body>
+</html>
